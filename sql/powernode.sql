@@ -1,0 +1,19 @@
+CREATE DATABASE powernode;
+
+USE powernode;
+
+CREATE TABLE t_car 
+AS 
+SELECT * FROM mybatis.t_car
+WHERE 1=2
+
+SELECT * FROM t_car;
+
+DROP TABLE t_car
+
+SHOW CREATE TABLE t_car
+
+ALTER TABLE t_car
+MODIFY id BIGINT PRIMARY KEY AUTO_INCREMENT
+ 
+

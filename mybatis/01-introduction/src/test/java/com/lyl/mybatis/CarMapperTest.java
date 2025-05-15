@@ -1,5 +1,6 @@
 package com.lyl.mybatis;
 
+import com.lyl.mybatis.Util.SqlSessionUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -38,5 +39,13 @@ public class CarMapperTest {//名字规范:你要测试的类名+Test
             if(ss!=null)
                 ss.close();
         }
+    }
+
+    @Test
+    public void testSqlSessionUtil(){
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession();
+        System.out.println(sqlSession.insert("insertCar"));
+        sqlSession.commit();
+        sqlSession.close();
     }
 }

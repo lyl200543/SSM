@@ -4,12 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-<!--    <settings>-->
-<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
-<!--    </settings>-->
-    
+
     <environments default="development">
-<!--        一个environment代表一个数据库-->
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
@@ -23,6 +19,7 @@
 
     <mappers>
         <mapper resource="CarMapper.xml"/>
+        <mapper resource="UserMapper.xml"/>
     </mappers>
 
 </configuration>
