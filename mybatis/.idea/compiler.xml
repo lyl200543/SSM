@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="parse-xml-by-dom4j" />
         <module name="01-introduction" />
-        <module name="02-CRUD" />
         <module name="03-configuration" />
+        <module name="02-CRUD" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

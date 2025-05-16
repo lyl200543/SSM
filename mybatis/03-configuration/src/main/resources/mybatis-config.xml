@@ -4,17 +4,41 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-<!--默认环境为mybatisDB-->
+<!--    <properties>-->
+<!--        <property name="jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--        <property name="jdbc.url" value="jdbc:mysql://localhost:3306/mybatis"/>-->
+<!--        <property name="jdbc.username" value="root"/>-->
+<!--        <property name="jdbc.password" value="123456"/>-->
+<!--    </properties>-->
+
+    <properties resource="jdbc.properties"/>
+
+<!--    绝对路径: file:///-->
+<!--    <properties url="file:///D:/jdbc.properties"/>-->
+
+    <!--默认环境为mybatisDB-->
     <environments default="mybatisDB">
-<!--一个environment代表一个数据库,例如atguigudb就是一个数据库-->
-<!--一个环境对应一个SqlSessionFactory对象-->
+        <!--一个environment代表一个数据库,例如atguigudb就是一个数据库-->
+        <!--一个环境对应一个SqlSessionFactory对象-->
         <environment id="mybatisDB">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+
+                <!--            在任意时间可存在的活动（正在使用）连接数量，默认值：10-->
+                <property name="poolMaximumActiveConnections" value="3"/>
+                <!--            任意时间可能存在的空闲连接数,超出空闲数的连接会被真正关闭-->
+                <!--                <property name="poolMaximumIdleConnections" value="5"/>-->
+                <!--            在被强制返回之前，池中连接被检出（checked out）时间，默认值：20000 毫秒（即 20 秒）
+                                强制返回被使用的但是处于空闲的连接的等待时间-->
+                <property name="poolMaximumCheckoutTime" value="2000"/>
+                <!--                这是一个底层设置，如果获取连接花费了相当长的时间，连接池会打印状态日志并重新尝试获取一个连接
+                                    （避免在误配置的情况下一直失败且不打印日志），默认值：20000 毫秒（即 20 秒）。-->
+                                <property name="poolTimeToWait" value="2000"/>
+
             </dataSource>
         </environment>
 
