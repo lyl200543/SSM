@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/02-CRUD/pom.xml" />
         <option value="$PROJECT_DIR$/03-configuration/pom.xml" />
         <option value="$PROJECT_DIR$/parse-xml-by-dom4j/pom.xml" />
+        <option value="$PROJECT_DIR$/04-web/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
