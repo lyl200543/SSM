@@ -10,11 +10,15 @@
         <option value="$PROJECT_DIR$/03-configuration/pom.xml" />
         <option value="$PROJECT_DIR$/parse-xml-by-dom4j/pom.xml" />
         <option value="$PROJECT_DIR$/04-web/pom.xml" />
+        <option value="$PROJECT_DIR$/javassist-test/pom.xml" />
+        <option value="$PROJECT_DIR$/05-CRUD2/pom.xml" />
+        <option value="$PROJECT_DIR$/06-antic/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/01_introduction/pom.xml" />
+        <option value="$PROJECT_DIR$/javassist-test/pom.xml" />
       </set>
     </option>
   </component>

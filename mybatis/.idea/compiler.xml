@@ -8,14 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="04-web" />
-        <module name="parse-xml-by-dom4j" />
         <module name="01-introduction" />
         <module name="03-configuration" />
+        <module name="06-antic" />
+        <module name="parse-xml-by-dom4j" />
         <module name="02-CRUD" />
+        <module name="05-CRUD2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="01_introduction" target="21" />
+      <module name="javassist-test" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>

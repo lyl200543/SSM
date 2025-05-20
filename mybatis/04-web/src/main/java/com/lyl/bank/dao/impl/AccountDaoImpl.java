@@ -12,6 +12,11 @@ import org.apache.ibatis.session.SqlSession;
  *@Author lyl
  *@Version 1.0
  */
+
+/**
+ 改进：dao实现类的代码重复且简单，是否可以自动生成
+        --》使用javassist(mybatis内置了)
+ */
 public class AccountDaoImpl implements AccountDao {
     @Override
     public Account selectByAct (String act) {
