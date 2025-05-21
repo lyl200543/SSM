@@ -16,6 +16,34 @@ import java.util.List;
  *@Version 1.0
  */
 public class carMapperTest {
+    @Test
+    public void testInsertReturnGeneratedKey () {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        carMapper mapper = sqlSession.getMapper(carMapper.class);
+        Car car = new Car(null , "404" , "保时捷" , 1000.0 , "2005-4-30" , "燃油车");
+        mapper.insertReturnGeneratedKey(car);
+        System.out.println(car);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void testSelectByBrandLike () {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        carMapper mapper = sqlSession.getMapper(carMapper.class);
+        List<Car> cars = mapper.selectByBrandLike("奔驰");
+        cars.forEach(car -> System.out.println(car));
+        sqlSession.close();
+    }
+
+    @Test
+    public void testDeleteBatch () {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        carMapper mapper = sqlSession.getMapper(carMapper.class);
+        System.out.println(mapper.deleteBatch("5,72"));
+        sqlSession.commit();
+        sqlSession.close();
+    }
 
     @Test
     public void testSelectByAscOrDesc () {

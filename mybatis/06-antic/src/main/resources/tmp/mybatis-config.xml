@@ -4,15 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <properties resource="jdbc.properties"/>
+    <properties resource=""/>
     <typeAliases>
-        <!--        <typeAlias type="com.lyl.mybatis.pojo.Car" alias="aaa"></typeAlias>-->
-<!--        <typeAlias type="com.lyl.mybatis.pojo.Car"></typeAlias>-->
-        <package name="com/lyl/mybatis/pojo"/>
+        <package name=""/>
     </typeAliases>
 
-    <environments default="mybatisDB">
-        <environment id="mybatisDB">
+    <environments default="">
+        <environment id="">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
@@ -25,14 +23,7 @@
     </environments>
 
     <mappers>
-<!--        <mapper resource="CarMapper.xml"/>-->
-<!--        <mapper resource="LogMapper.xml"/>-->
-
-<!--        <mapper class="com.lyl.mybatis.mapper.carMapper"/>-->
-<!--        <mapper class="com.lyl.mybatis.mapper.logMapper"/>-->
-
-        <package name="com.lyl.mybatis.mapper"/>
-
+        <package name=""/>
     </mappers>
 
 </configuration>

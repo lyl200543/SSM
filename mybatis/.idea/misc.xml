@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/javassist-test/pom.xml" />
         <option value="$PROJECT_DIR$/05-CRUD2/pom.xml" />
         <option value="$PROJECT_DIR$/06-antic/pom.xml" />
+        <option value="$PROJECT_DIR$/07-param/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -5,6 +5,11 @@
 
 <configuration>
     <properties resource="jdbc.properties"/>
+    <typeAliases>
+        <!--        <typeAlias type="com.lyl.mybatis.pojo.Car" alias="aaa"></typeAlias>-->
+<!--        <typeAlias type="com.lyl.mybatis.pojo.Car"></typeAlias>-->
+        <package name="com/lyl/mybatis/pojo"/>
+    </typeAliases>
 
     <environments default="mybatisDB">
         <environment id="mybatisDB">
@@ -20,8 +25,14 @@
     </environments>
 
     <mappers>
-        <mapper resource="CarMapper.xml"/>
-        <mapper resource="LogMapper.xml"/>
+<!--        <mapper resource="CarMapper.xml"/>-->
+<!--        <mapper resource="LogMapper.xml"/>-->
+
+<!--        <mapper class="com.lyl.mybatis.mapper.carMapper"/>-->
+<!--        <mapper class="com.lyl.mybatis.mapper.logMapper"/>-->
+
+        <package name="com.lyl.mybatis.mapper"/>
+
     </mappers>
 
 </configuration>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lyl.mybatis.mapper.studentMapper">
+    <select id="selectByNameAndSex" resultType="Student">
+        select *
+        from t_student
+        where name=#{name} and sex=#{sex}
+    </select>
+
+    <insert id="insertByPojo">
+        <!--实体类:#{}存放的是类的属性-->
+        insert into t_student
+        values (null, #{name}, #{age}, #{height}, #{birth}, #{sex})
+    </insert>
+
+    <insert id="insertByMap">
+        <!--map:#{}存放的是key的值-->
+        insert into t_student
+        values (null, #{姓名}, #{年龄}, #{身高}, #{生日}, #{性别})
+    </insert>
+
+
+    <select id="selectById" resultType="Student" parameterType="java.lang.Long">
+        select *
+        from t_student
+        where id = #{id}
+    </select>
+
+    <select id="selectByName" resultType="Student">
+        select *
+        from t_student
+        where name=#{name}
+    </select>
+
+    <select id="selectByAge" resultType="Student" >
+        select *
+        from t_student
+        where age=#{age}
+    </select>
+
+    <select id="selectByHeight" resultType="Student">
+        select *
+        from t_student
+        where height=#{height}
+    </select>
+
+    <select id="selectByBirth" resultType="Student">
+        select *
+        from t_student
+        where birth=#{birth}
+    </select>
+
+    <select id="selectBySex" resultType="Student">
+        select *
+        from t_student
+        where sex=#{sex}
+    </select>
+</mapper>

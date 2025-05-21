@@ -12,7 +12,13 @@ import java.util.List;
  *@Version 1.0
  */
 public interface carMapper {
-    List<Car> selectByCarType(String carType);
+    List<Car> selectByCarType (String carType);
 
-    List<Car > selectByAscOrDesc(String ascOrDesc);
+    List<Car> selectByAscOrDesc (String ascOrDesc);
+
+    int deleteBatch (String carIds);
+
+    List<Car> selectByBrandLike (String brand);
+
+    int insertReturnGeneratedKey (Car car);
 }
