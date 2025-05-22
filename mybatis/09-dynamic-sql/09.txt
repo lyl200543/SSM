@@ -1,0 +1,44 @@
+动态sql
+
+1.if标签
+      1 if标签中test属性是必须的。
+      2 if标签中test属性的值是false或者true.
+      3 如果test是true，则if标签中的sql语句就会拼接。反之，则不会拼接。
+      4 test属性中可以使用的是:
+         当使用了@Param注解，那么test中要出现的是@Param注解指定的参数名
+         @Param("brand")，那么这里只能使用brand
+         当没有使用@Param注解，那么test中要出现的是:param1 param2 param3 arg0 arg1 arg2....
+         当使用了P0J0，那么test中出现的是P0J0类的属性名。
+      5 在mybatis的动态SQL当中，不能使用&&，只能使用and
+
+
+2.where标签
+      作用:让where子句更加动态智能,
+      所有条件都为空时，where标签保证不会生成where
+      子句自动去除某些条件前面多余的and或or
+      （注意：不能去除后面的and/or）
+
+
+3.trim标签
+    属性
+      ·prefix:在trim标签中的语句前添加内容
+      ·suffix:在trim标签中的语句后添加内容
+      ·prefixOverrides:前缀覆盖掉(去掉)
+      ·suffixOverrides:后缀覆盖掉(去掉)
+
+
+4.set标签
+    主要使用在update语句当中，用来生成set关键字，同时去掉最后多余的“,“
+    我们只更新提交的不为空的字段，如果提交的数据是空或者""，那么这个字段我们将不更新
+
+
+
+
+
+
+
+
+
+
+
+

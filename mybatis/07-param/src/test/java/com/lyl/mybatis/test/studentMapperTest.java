@@ -22,6 +22,15 @@ import java.util.Map;
  */
 public class studentMapperTest {
     @Test
+    public void testSelectByNameAndSex2 () {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        studentMapper mapper = sqlSession.getMapper(studentMapper.class);
+        List<Student> students = mapper.selectByNameAndSex2("小红" , '女');
+        students.forEach(student -> System.out.println(student));
+        sqlSession.close();
+    }
+
+    @Test
     public void testSelectByNameAndSex () {
         SqlSession sqlSession = SqlSessionUtil.openSession();
         studentMapper mapper = sqlSession.getMapper(studentMapper.class);

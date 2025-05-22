@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lyl.mybatis.mapper.CarMapper">
+    <select id="selectAllRetCount" resultType="long">
+        select count(*)
+        from t_car
+    </select>
+
+    <select id="selectAllBySettings" resultType="Car">
+        select *
+        from t_car
+    </select>
+
+    <resultMap id="carResultMap" type="car">
+        <id property="id" column="id"></id>
+        <result property="carNum" column="car_num"></result>
+        <result property="guidePrice" column="guide_price"></result>
+        <result property="produceTime" column="produce_time"></result>
+        <result property="carType" column="car_type"></result>
+    </resultMap>
+    <select id="selectAllByResultMap" resultMap="carResultMap">
+        select *
+        from t_car
+    </select>
+
+    <select id="selectAllMap" resultType="map">
+        select *
+        from t_car
+    </select>
+
+    <select id="selectAllRetMap" resultType="map">
+        select *
+        from t_car
+    </select>
+
+    <!--    java.util.Map的默认别名为map-->
+    <select id="selectByIdRetMap" resultType="map">
+        select *
+        from t_car
+        where id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="Car">
+        select id, car_num as carNum, brand, guide_price as guidePrice, produce_time as produceTime, car_type as carType
+        from t_car
+    </select>
+
+    <select id="selectById" resultType="Car">
+        select id, car_num as carNum, brand, guide_price as guidePrice, produce_time as produceTime, car_type as carType
+        from t_car
+        where id = #{id}
+    </select>
+
+</mapper>

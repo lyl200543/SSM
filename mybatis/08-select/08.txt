@@ -1,0 +1,31 @@
+返回类型
+1.结果映射：
+
+    查询结果的列名和java对象的属性名对应不上怎么办？
+    第⼀种⽅式：as 给列起别名
+    第⼆种⽅式：使⽤resultMap进⾏结果映射
+         resultMap:
+         id：这个结果映射的标识，作为select标签的resultMap属性的值。
+         type：结果集要映射的类。可以使⽤别名。
+         <resultMap id="carResultMap" type="car">
+             对象的唯⼀标识，官⽅解释是：为了提⾼mybatis的性能。建议写上
+             <id property="id" column="id"/>
+
+             当属性名和数据库列名⼀致时，可以省略。但建议都写上
+             javaType⽤来指定属性类型。jdbcType⽤来指定列类型。⼀般可以省略
+             <result property="brand" column="brand" javaType="string" jdbcType="VARCHAR"/>
+             <result property="carNum" column="car_num"/>
+             <result property="guidePrice" column="guide_price"/>
+             <result property="produceTime" column="produce_time"/>
+             <result property="carType" column="car_type"/>
+        </resultMap>
+
+        resultMap属性的值必须和resultMap标签中id属性值⼀致
+
+    第三种⽅式：是否开启驼峰命名⾃动映射（配置settings）
+
+        如何启⽤该功能，在mybatis-config.xml⽂件中进⾏配置：
+        放在properties标签后⾯
+        <settings>
+            <setting name="mapUnderscoreToCamelCase" value="true"/>
+        </settings>

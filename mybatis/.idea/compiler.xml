@@ -10,11 +10,13 @@
         <module name="04-web" />
         <module name="01-introduction" />
         <module name="03-configuration" />
+        <module name="09-dynamic-sql" />
         <module name="07-param" />
         <module name="06-antic" />
         <module name="parse-xml-by-dom4j" />
         <module name="02-CRUD" />
         <module name="05-CRUD2" />
+        <module name="08-select" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

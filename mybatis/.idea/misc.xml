@@ -14,6 +14,8 @@
         <option value="$PROJECT_DIR$/05-CRUD2/pom.xml" />
         <option value="$PROJECT_DIR$/06-antic/pom.xml" />
         <option value="$PROJECT_DIR$/07-param/pom.xml" />
+        <option value="$PROJECT_DIR$/08-select/pom.xml" />
+        <option value="$PROJECT_DIR$/09-dynamic-sql/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

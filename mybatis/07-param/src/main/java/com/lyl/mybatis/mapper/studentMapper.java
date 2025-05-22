@@ -1,6 +1,7 @@
 package com.lyl.mybatis.mapper;
 
 import com.lyl.mybatis.pojo.Student;
+import org.apache.ibatis.annotations.Param;
 
 import java.net.CacheRequest;
 import java.util.Date;
@@ -16,6 +17,8 @@ import java.util.Map;
  */
 public interface studentMapper {
     //多参数
+    List<Student> selectByNameAndSex2 (@Param("name") String name ,@Param("sex") Character sex);
+
     //如果是多个参数的话，mybatis框架底层是怎么做的呢?
     //mybatis框架会自动创建一个map集合。并且Map集合是以这种方式存储参数的:
     //map.put("arg0",name);
