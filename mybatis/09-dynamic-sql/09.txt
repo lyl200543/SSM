@@ -32,11 +32,41 @@
     我们只更新提交的不为空的字段，如果提交的数据是空或者""，那么这个字段我们将不更新
 
 
+5.choose when otherwise标签：
+    <choose>
+       <when></when>
+       <when></when>
+       <when></when>
+       <otherwise></otherwise>
+    </choose>
+    等同于：
+    if(){
+    }else if(){
+    }else if(){
+    }else if(){
+    }else{
+    }
+    只有⼀个分⽀会被选择！！！！
 
 
+6.foreach标签
+    循环数组或集合，动态⽣成sql
+
+    标签中的属性有：
+    collection：集合或数组
+    item：集合或数组中的元素
+    separator：分隔符
+    open：foreach标签中所有内容的开始
+    close：foreach标签中所有内容的结束
+
+    报错：Available parameters are [array, arg0]
+    collection=""要么是@Param("")中的内容，要么是array/arg0
 
 
-
+7.sql标签和include标签
+    sql标签⽤来声明sql⽚段
+    include标签⽤来将声明的sql⽚段包含到某个sql语句当中
+    作⽤：代码复⽤。易维护。
 
 
 

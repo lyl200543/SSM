@@ -14,6 +14,17 @@ import java.util.List;
  *@Version 1.0
  */
 public interface CarMapper {
+    //批量增加
+    int insertBatch (@Param ("cars") List<Car> cars);
+
+    //批量删除
+    int deleteByIds2 (@Param ("ids") Long[] ids);
+
+    int deleteByIds (@Param ("ids") Long[] ids);
+
+    List<Car> selectByChoose (@Param ("brand") String brand ,
+                              @Param ("guidePrice") Double guidePrice ,
+                              @Param ("carType") String carType);
 
     int updateBySet (Car car);
 

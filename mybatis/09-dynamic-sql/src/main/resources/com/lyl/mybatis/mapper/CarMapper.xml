@@ -4,6 +4,51 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lyl.mybatis.mapper.CarMapper">
+    <insert id="insertBatch">
+        insert into t_car
+        values
+        <foreach collection="cars" item="car" separator=",">
+            (null,#{car.carNum},#{car.brand},#{car.guidePrice},#{car.produceTime},#{car.carType})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByIds2">
+        delete
+        from t_car
+        where
+        <foreach collection="ids" item="id" separator="or">
+            id=#{id}
+        </foreach>
+    </delete>
+
+    <delete id="deleteByIds">
+        delete
+        from t_car
+        where id in (
+        <foreach collection="ids" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
+    </delete>
+
+    <select id="selectByChoose" resultType="Car">
+        select *
+        from t_car
+        <where>
+            <choose>
+                <when test="brand!=null and brand!=''">
+                    brand like "%"#{brand}"%"
+                </when>
+                <when test="guidePrice!=null ">
+                    guide_price > #{guidePrice}
+                </when>
+                <otherwise>
+                    car_type=#{carType}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
     <update id="updateBySet">
         update t_car
         <set>
@@ -36,12 +81,17 @@
         where id = #{id}
     </update>
 
+    <sql id="brandLike">
+        brand like "%"#{brand}"%"
+    </sql>
+
     <select id="selectByMutipleConditonsWithTrim" resultType="Car">
         select *
         from t_car
         <trim prefix="where" suffixOverrides="and|or">
             <if test="brand!=null and brand!=''">
-                brand like "%"#{brand}"%" and
+                <!--                 brand like "%"#{brand}"%" and-->
+                <include refid="brandLike"></include> and
             </if>
             <if test="guidePrice!=null">
                 guide_price>#{guidePrice} and
@@ -57,7 +107,8 @@
         from t_car
         <where>
             <if test="brand!=null and brand!=''">
-                and brand like "%"#{brand}"%"
+                <!--and brand like "%"#{brand}"%"-->
+                and <include refid="brandLike"></include>
             </if>
             <if test="guidePrice!=null">
                 and guide_price>#{guidePrice}
@@ -73,7 +124,8 @@
         from t_car
         where 1=1
         <if test="brand!=null and brand!=''">
-            and brand like "%"#{brand}"%"
+            <!--and brand like "%"#{brand}"%"-->
+          and <include refid="brandLike"></include>
         </if>
         <if test="guidePrice!=null and guidePrice!=''">
             and guide_price>#{guidePrice}

@@ -14,6 +14,7 @@
         <module name="07-param" />
         <module name="06-antic" />
         <module name="parse-xml-by-dom4j" />
+        <module name="10-advanced-mapping" />
         <module name="02-CRUD" />
         <module name="05-CRUD2" />
         <module name="08-select" />

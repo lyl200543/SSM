@@ -6,6 +6,7 @@ import com.lyl.mybatis.util.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +17,51 @@ import java.util.List;
  *@Version 1.0
  */
 public class CarMapperTest {
+    @Test
+    public void testInsertBatch () {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        CarMapper mapper = sqlSession.getMapper(CarMapper.class);
+        Car car1 = new Car(null , "2001" , "兰博基尼" , 100.0 , "1998-10-11" , "燃油⻋");
+        Car car2 = new Car(null , "2002" , "兰博基尼" , 100.0 , "1998-10-11" , "燃油⻋");
+        Car car3 = new Car(null , "2003" , "兰博基尼" , 100.0 , "1998-10-11" , "燃油⻋");
+        List<Car> list = new ArrayList<>();
+        list.add(car1);
+        list.add(car2);
+        list.add(car3);
+        mapper.insertBatch(list);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void testDeleteByIds2 () {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        CarMapper mapper = sqlSession.getMapper(CarMapper.class);
+        int ret = mapper.deleteByIds2(new Long[]{5L , 6L , 7L});
+        System.out.println(ret);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void testDeleteByIds () {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        CarMapper mapper = sqlSession.getMapper(CarMapper.class);
+        int ret = mapper.deleteByIds(new Long[]{5L , 6L , 7L});
+        System.out.println(ret);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void testSelectByChoose () {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        CarMapper mapper = sqlSession.getMapper(CarMapper.class);
+        List<Car> cars = mapper.selectByChoose("" , null , "");
+        cars.forEach(car -> System.out.println(car));
+        sqlSession.close();
+    }
+
     @Test
     public void testUpdateBySet () {
         SqlSession sqlSession = SqlSessionUtil.openSession();
