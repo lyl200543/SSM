@@ -23,6 +23,20 @@
     <file url="file://$PROJECT_DIR$/09-dynamic-sql/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/10-advanced-mapping/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/10-advanced-mapping/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/11-cache/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/11-cache/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/12-generator1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/12-generator1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/13-generator2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/13-generator2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/14-pageHelper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/14-pageHelper/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/15-annotation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/15-annotation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/godbatis-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/godbatis-test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/godbatis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/godbatis/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javassist-test/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javassist-test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/parse-xml-by-dom4j/src/main/java" charset="UTF-8" />

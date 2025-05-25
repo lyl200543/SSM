@@ -57,7 +57,21 @@ VALUES(NULL,'张三',20,1.81,'1980-10-11','男'),
 
 SELECT * FROM t_student
 
+CREATE TABLE t_clazz
+(
+cid INT PRIMARY KEY,
+cname VARCHAR(255)
+);
 
+
+CREATE TABLE t_stu
+(
+sid INT PRIMARY KEY,
+sname VARCHAR(255),
+cid INT
+);
+
+SELECT * FROM t_user
 
 
 

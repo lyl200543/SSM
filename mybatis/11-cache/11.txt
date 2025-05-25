@@ -1,0 +1,54 @@
+MyBatis的缓存机制
+
+1.缓存：cache
+    缓存的作⽤：通过减少IO的⽅式，来提⾼程序的执⾏效率。
+    mybatis的缓存：将select语句的查询结果放到缓存（内存）当中，下⼀次还是这条select语句的话，
+    直接从缓存中取，不再查数据库。⼀⽅⾯是减少了IO。另⼀⽅⾯不再执⾏繁琐的查找算法。效率⼤⼤提升。
+
+    mybatis缓存包括：
+        ⼀级缓存：将查询到的数据存储到SqlSession中。
+        ⼆级缓存：将查询到的数据存储到SqlSessionFactory中。
+        或者集成其它第三⽅的缓存：⽐如EhCache【Java语⾔开发的】、Memcache【C语⾔开发的】等。
+            缓存只针对于DQL语句，也就是说缓存机制只对应select语句。
+
+
+2.一级缓存：
+    ⼀级缓存默认是开启的。不需要做任何配置。
+    原理：只要使⽤同⼀个SqlSession对象执⾏同⼀条SQL语句，就会⾛缓存
+
+    思考:什么时候不走缓存?
+    SqlSession对象不是同一个，肯定不走缓存。
+    查询条件不一样，肯定也不走缓存。
+
+    思考:什么时候一级缓存失效?
+    第一次DQL和第二次DQL之间你做了以下两件事中的任意一件，都会让一级缓存清空:
+    1>执行了sqlSession的clearCache()方法，这是手动清空缓存。
+    2>执行了INSERT或DELETE或UPDATE语句。不管你是操作哪张表的，都会清空一级缓存
+
+
+3.二级缓存：
+    ⼆级缓存的范围是SqlSessionFactory
+    使⽤⼆级缓存需要具备以下⼏个条件：
+        1> <setting name="cacheEnabled" value="true"> 全局性地开启或关闭
+        所有映射器配置⽂件中已配置的任何缓存。默认就是true，⽆需设置。
+        2> 在需要使⽤⼆级缓存的SqlMapper.xml⽂件中添加配置：<cache />
+        3> 使⽤⼆级缓存的实体类对象必须是可序列化的，也就是必须实现java.io.Serializable接⼝
+        4> SqlSession对象关闭或提交之后，⼀级缓存中的数据才会被写⼊到⼆级缓存当中。此时⼆级缓存才可⽤。
+
+    ⼆级缓存的失效：只要两次查询之间出现了增删改操作。⼆级缓存就会失效。【⼀级缓存也会失效】
+
+
+4.MyBatis集成EhCache
+    集成EhCache是为了代替mybatis⾃带的⼆级缓存。⼀级缓存是⽆法替代的。
+    mybatis对外提供了接⼝，也可以集成第三⽅的缓存组件。⽐如EhCache、Memcache等。都可以。
+    EhCache是Java写的。Memcache是C语⾔写的。所以mybatis集成EhCache较为常⻅
+
+
+
+
+
+
+
+
+
+

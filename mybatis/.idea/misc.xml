@@ -17,6 +17,13 @@
         <option value="$PROJECT_DIR$/08-select/pom.xml" />
         <option value="$PROJECT_DIR$/09-dynamic-sql/pom.xml" />
         <option value="$PROJECT_DIR$/10-advanced-mapping/pom.xml" />
+        <option value="$PROJECT_DIR$/11-cache/pom.xml" />
+        <option value="$PROJECT_DIR$/12-generator1/pom.xml" />
+        <option value="$PROJECT_DIR$/13-generator2/pom.xml" />
+        <option value="$PROJECT_DIR$/14-pageHelper/pom.xml" />
+        <option value="$PROJECT_DIR$/15-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/godbatis/pom.xml" />
+        <option value="$PROJECT_DIR$/godbatis-test/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

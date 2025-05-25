@@ -7,17 +7,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="04-web" />
+        <module name="11-cache" />
         <module name="01-introduction" />
-        <module name="03-configuration" />
         <module name="09-dynamic-sql" />
-        <module name="07-param" />
+        <module name="15-annotation" />
         <module name="06-antic" />
-        <module name="parse-xml-by-dom4j" />
-        <module name="10-advanced-mapping" />
-        <module name="02-CRUD" />
+        <module name="godbatis" />
+        <module name="13-generator2" />
         <module name="05-CRUD2" />
         <module name="08-select" />
+        <module name="04-web" />
+        <module name="03-configuration" />
+        <module name="07-param" />
+        <module name="12-generator1" />
+        <module name="parse-xml-by-dom4j" />
+        <module name="10-advanced-mapping" />
+        <module name="14-pageHelper" />
+        <module name="02-CRUD" />
+        <module name="godbatis-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
