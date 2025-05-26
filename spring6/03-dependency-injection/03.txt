@@ -1,0 +1,89 @@
+依赖注入
+
+1.set注入
+    核心实现原理:通过反射机制调用set方法来给属性赋值，让两个对象之间产生关系
+
+    通过property标签获取到属性名:userDao
+    通过属性名推断出set方法名:setUserDao
+    通过反射机制调用setUserDao()方法给属性赋值
+
+    property标签的name是属性名(系统自动生成的set方法的情况下)
+    (如果set方法是自定义的，则name是set方法去掉set,将第一个字母变为小写)
+    property标签的ref是要注入的bean对象的id.
+    <property name="userDao" ref="UserDaoBean"/>
+
+
+2.构造注入：
+    <bean id="csBean" class="com.lyl.spring6.service.CustomerService">
+            <constructor-arg index="0" ref="UserDao"/>
+            <constructor-arg index="1" ref="VipDao"/>
+    </bean>
+
+    <bean id="csBean2" class="com.lyl.spring6.service.CustomerService">
+            <!--name为构造函数中属性的名称-->
+            <constructor-arg name="userDao" ref="UserDao"/>
+            <constructor-arg name="vipDao" ref="VipDao"/>
+    </bean>
+
+
+3.set注入专题：
+    -外部Bean:通过ref=""引入
+    -内部Bean:在<property>标签内部的<bean>
+    -简单类型：
+    BeanUtils.class->isSimpleValueType()
+
+        public static boolean isSimpleValueType(Class<?> type) {
+                    return ClassUtils.isSimpleValueType(type);
+                }
+
+    ->ClassUtils.isSimpleValueType()
+
+        public static boolean isSimpleValueType(Class<?> type) {
+            return !isVoidType(type) &&
+            (isPrimitiveOrWrapper(type) ||
+            Enum.class.isAssignableFrom(type) ||
+            CharSequence.class.isAssignableFrom(type) ||
+            Number.class.isAssignableFrom(type) ||
+            Date.class.isAssignableFrom(type) ||
+            Temporal.class.isAssignableFrom(type) ||
+            ZoneId.class.isAssignableFrom(type) ||
+            TimeZone.class.isAssignableFrom(type) ||
+            File.class.isAssignableFrom(type) ||
+            Path.class.isAssignableFrom(type) ||
+            Charset.class.isAssignableFrom(type) ||
+            Currency.class.isAssignableFrom(type) ||
+            InetAddress.class.isAssignableFrom(type) ||
+            URI.class == type ||
+            URL.class == type ||
+            UUID.class == type ||
+            Locale.class == type ||
+            Pattern.class == type ||
+            Class.class == type);
+        }
+
+    排除 void 类型：首先通过 !isVoidType(type) 排除 void 类型
+    检查多种简单类型：然后检查类型是否属于以下任一类别：
+    基本类型或其包装类 (isPrimitiveOrWrapper)
+    枚举类型 (Enum.class.isAssignableFrom)
+    字符串或字符序列 (CharSequence)(String实现了这个接口)
+    数字类型 (Number)
+    日期时间相关类型 (Date, Temporal, ZoneId, TimeZone)
+    文件路径相关类型 (File, Path)
+    字符集 (Charset)
+    货币 (Currency)
+    网络地址 (InetAddress)
+    特定类的精确匹配 (URI, URL, UUID, Locale, Pattern, Class)
+
+    应用：给数据源的属性赋值
+
+    -级联属性赋值(了解)
+        顺序不能颠倒
+        要提供getter方法
+
+    -数组注入
+
+
+
+
+
+

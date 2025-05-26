@@ -1,0 +1,42 @@
+第一个spring6程序
+
+1.底层是怎么创建对象的？
+    通过反射机制,调用无参构造函数
+    Class clazz = Class.forName("com.lyl.spring6.bean.User");
+    User user = clazz.newInstance();
+    -->一定要有无参构造函数
+
+
+2.创建好的对象如何存储？
+    通过Map<String,Object>存储
+    key:bean的id
+    value:创建好的对象
+
+
+3.spring的配置文件的名字不唯一，数量也不唯一，位置也不唯一
+  bean的id必须不同，但class可以相同
+
+
+4.bean中可以是JDK自带的类，如java.util.Date
+
+
+5.getBean()方法返回的类型是Obiect,如果访问子类的特有属性和方法时，还需要向下转型
+  有什么办法可以解决这个问题吗?
+  getBean("id",类对象)
+
+
+6.BeanFactory是Spring容器的超级接口。
+  ApplicationContext是BeanFactory的子接口。
+
+
+7.spring底层：IOC+工厂模式+反射机制
+
+
+
+
+
+
+
+
+
+

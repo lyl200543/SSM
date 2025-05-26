@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/01-revelation/pom.xml" />
         <option value="$PROJECT_DIR$/02-first/pom.xml" />
+        <option value="$PROJECT_DIR$/03-dependency-injection/pom.xml" />
       </list>
     </option>
   </component>

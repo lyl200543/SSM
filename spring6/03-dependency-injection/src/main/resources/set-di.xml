@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="OrderDaoBean" class="com.lyl.spring6.dao.OrderDao"/>
+    <bean id="OrderServiceBean" class="com.lyl.spring6.service.OrderService">
+        <!--        外部Bean(通常情况下)-->
+        <property name="orderDao" ref="OrderDaoBean"/>
+    </bean>
+
+    <bean id="OrderServiceBean2" class="com.lyl.spring6.service.OrderService">
+        <property name="orderDao">
+            <!--            内部Bean-->
+            <bean class="com.lyl.spring6.dao.OrderDao"/>
+        </property>
+    </bean>
+
+    <!--    注入简单类型,不用ref,用value-->
+    <bean id="UserBean" class="com.lyl.spring6.bean.User">
+        <property name="name" value="张三"/>
+        <property name="password" value="123456"/>
+        <property name="age" value="20"/>
+    </bean>
+
+    <bean id="SimpleTypeBean" class="com.lyl.spring6.bean.SimpleType">
+        <property name="num" value="30"/>
+        <property name="num2" value="30"/>
+        <property name="c" value="男"/>
+        <property name="c2" value="女"/>
+        <property name="flag" value="true"/>
+        <property name="flag2" value="false"/>
+        <property name="season" value="SPRING"/>
+        <property name="clazz" value="java.lang.String"/>
+        <!--    报错：Failed to convert property value of type 'java.lang.String'
+                to required type 'java.util.Date' for property 'date';-->
+        <!--        <property name="date" value="2025-4-30"/>-->
+        <!--        未报错：Date类型的值的形式难写，故虽为简单类型但一般通过ref注入-->
+        <property name="date" value="Mon May 26 20:01:56 CST 2025"/>
+    </bean>
+
+    <bean id="myDataSourceBean" class="com.lyl.spring6.bean.myDataSource">
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/spring"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+</beans>

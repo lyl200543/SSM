@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="01-revelation" />
         <module name="02-first" />
+        <module name="03-dependency-injection" />
       </profile>
     </annotationProcessing>
   </component>
