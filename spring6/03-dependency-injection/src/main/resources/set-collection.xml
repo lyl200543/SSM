@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="PersonBean" class="com.lyl.spring6.bean.Person">
+        <property name="names">
+            <list>
+<!--                <ref bean=""/>-->
+                <value>张三</value>
+                <value>张三</value>
+                <value>张三</value>
+                <value>李四</value>
+                <value>李四</value>
+                <value>王五</value>
+            </list>
+        </property>
+        <property name="addrs">
+            <set>
+<!--                <ref bean=""/>-->
+                <value>中山</value>
+                <value>中山</value>
+                <value>中山</value>
+                <value>珠海</value>
+                <value>深圳</value>
+                <value>广州</value>
+            </set>
+        </property>
+
+        <property name="phones">
+            <map>
+<!--                <entry key-ref="" value-ref=""/>-->
+                <entry key="1" value="110"/>
+                <entry key="2" value="119"/>
+                <entry key="3" value="120"/>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/spring6</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

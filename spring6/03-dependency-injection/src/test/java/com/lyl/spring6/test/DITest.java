@@ -18,6 +18,34 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class DITest {
     @Test
+    public void testSign () {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("set-di.xml");
+        MathBean mathBean = applicationContext.getBean("MathBean" , MathBean.class);
+        System.out.println(mathBean);
+    }
+
+    @Test
+    public void testNull () {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("set-di.xml");
+        animal animalBean = applicationContext.getBean("animalBean" , animal.class);
+        System.out.println(animalBean.getName().toUpperCase());
+    }
+
+    @Test
+    public void testCollection () {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("set-collection.xml");
+        Person personBean = applicationContext.getBean("PersonBean" , Person.class);
+        System.out.println(personBean);
+    }
+
+    @Test
+    public void testArray () {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("set-array.xml");
+        QianDaYe qianDaYeBean = applicationContext.getBean("QianDaYeBean" , QianDaYe.class);
+        System.out.println(qianDaYeBean);
+    }
+
+    @Test
     public void testCascade () {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("cascade.xml");
         Student studentBean = applicationContext.getBean("StudentBean" , Student.class);

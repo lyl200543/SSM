@@ -3,6 +3,27 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="MathBean" class="com.lyl.spring6.bean.MathBean">
+        <!--        <property name="sign" value="2 &gt; 3"/>-->
+        <property name="sign">
+            <value><![CDATA[2>3]]></value>
+        </property>
+    </bean>
+
+    <bean id="animalBean" class="com.lyl.spring6.bean.animal">
+        <!--        <property name="name" value="Tom"/>-->
+        <!--                <property name="name">-->
+        <!--                    <null/>-->
+        <!--                </property>-->
+        <!--        <property name="name" value="null"/>-->
+
+        <!--        <property name="name" value=""/>-->
+        <property name="name">
+            <value/>
+        </property>
+        <property name="age" value="3"/>
+    </bean>
+
     <bean id="OrderDaoBean" class="com.lyl.spring6.dao.OrderDao"/>
     <bean id="OrderServiceBean" class="com.lyl.spring6.service.OrderService">
         <!--        外部Bean(通常情况下)-->

@@ -81,6 +81,121 @@
         要提供getter方法
 
     -数组注入
+        数组元素为简单类型
+
+             <bean id="QianDaYeBean" class="com.lyl.spring6.bean.QianDaYe">
+                    <property name="hobbies">
+                        <array>
+                            <value>喝酒</value>
+                            <value>抽烟</value>
+                            <value>钓鱼</value>
+                        </array>
+                    </property>
+                </bean>
+
+        数组元素为引用类型
+
+            <property name="women">
+                        <array>
+                            <ref bean="w1"/>
+                            <ref bean="w2"/>
+                            <ref bean="w3"/>
+                        </array>
+                    </property>
+
+
+    -注入List集合
+        <property name="names">
+            <list>
+    <!--                <ref bean=""/>-->
+                <value>张三</value>
+                <value>张三</value>
+                <value>张三</value>
+                <value>李四</value>
+                <value>李四</value>
+                <value>王五</value>
+            </list>
+        </property>
+
+    -注入set集合
+
+        <property name="addrs">
+            <set>
+<!--                <ref bean=""/>-->
+                <value>中山</value>
+                <value>中山</value>
+                <value>中山</value>
+                <value>珠海</value>
+                <value>深圳</value>
+                <value>广州</value>
+            </set>
+        </property>
+
+    -注入map集合
+
+        <property name="phones">
+            <map>
+<!--                <entry key-ref="" value-ref=""/>-->
+                <entry key="1" value="110"/>
+                <entry key="2" value="119"/>
+                <entry key="3" value="120"/>
+            </map>
+        </property>
+
+    -注入properties
+
+        <property name="properties">
+            <props>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://localhost:3306/spring6</prop>
+                <prop key="username">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+
+    -注入null
+        1*不写<property>
+        (注意:value="null"是null字符串，不为null)
+        2*
+        <property name="name">
+            <null/>
+        </property>
+
+    -注入空字符串
+        1*
+        <property name="name" value=""/>
+        2*
+        <property name="name">
+            <value/>
+        </property>
+
+    -注入特殊符号
+        XML中有5个特殊字符，分别是:<  >  '  "  &
+        以上5个特殊符号在XML中会被特殊对待，
+        会被当做XML语法的一部分进行解析，如果这些特殊符号直接出现在注入的字符串当中会报错。
+        1*特殊符号使用转义字符代替  >  &gt;
+            <property name="sign" value="2 &gt; 3"/>
+
+        2*将含有特殊符号的字符串放到:<![CDATA[]]>当中
+        因为放在CDATA区中的数据不会被XML文件解析器解析
+            <property name="sign">
+                 <value><![CDATA[2>3]]></value>
+            </property>
+
+
+4.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

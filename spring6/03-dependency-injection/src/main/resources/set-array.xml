@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="w1" class="com.lyl.spring6.bean.Woman">
+        <property name="name" value="小花"/>
+    </bean>
+
+    <bean id="w2" class="com.lyl.spring6.bean.Woman">
+        <property name="name" value="小花"/>
+    </bean>
+
+    <bean id="w3" class="com.lyl.spring6.bean.Woman">
+        <property name="name" value="小花"/>
+    </bean>
+
+    <bean id="QianDaYeBean" class="com.lyl.spring6.bean.QianDaYe">
+        <!--        简单类型-->
+        <property name="hobbies">
+            <array>
+                <value>喝酒</value>
+                <value>抽烟</value>
+                <value>钓鱼</value>
+            </array>
+        </property>
+        <!--        引用类型-->
+        <property name="women">
+            <array>
+                <ref bean="w1"/>
+                <ref bean="w2"/>
+                <ref bean="w3"/>
+            </array>
+        </property>
+    </bean>
+
+</beans>
