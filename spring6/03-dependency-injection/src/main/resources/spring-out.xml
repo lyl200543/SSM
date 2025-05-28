@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--    location:从类的根路径开始-->
+    <context:property-placeholder location="jdbc.properties"/>
+
+    <bean id="ds" class="com.lyl.spring6.bean.myDataSource">
+        <property name="driver" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!--    username='lyl'
+            ${username}会先自动匹配系统变量
+            因此通常配置文件写成：
+            jdbc.driver=com.mysql.cj.jdbc.Driver
+            jdbc.url=jdbc:mysql://localhost:3306/spring6
+            jdbc.username=root
+            jdbc.password=123456
+            -->
+</beans>

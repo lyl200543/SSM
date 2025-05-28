@@ -1,0 +1,25 @@
+Spring默认情况下是如何管理Bean的:
+
+1.默认情况下Bean是单例的。(单例:singleton)
+在Spring上下文初始化的时候实例化。
+每一次调用getBean()方法的时候，都返回那个单例的对象
+
+
+2.当将bean的scope属性设置为prototype:
+bean是多例的
+spring上下文初始化的时候，并不会初始化这些prototype的bean
+每一次调用getBean()方法的时候，实例化该bean对象prototype(原型)
+
+
+3.其它scope
+  scope属性的值不止两个，它一共包括8个选项:
+  singleton:默认的，单例。
+  prototype:原型。每调用一次getBean()方法则获取一个新的Bean对象。或每次注入的时候都是新对象。
+  request:一个请求对应一个Bean。仅限于在WEB应用中使用。
+  session:一个会话对应一个Bean。仅限于在WEB应用中使用。
+  global sesion:portlet应用中专用的。
+  如果在Servet的WEB应用中使用global session的话，和session一个效果。
+  (portlet和servlet都是规范。servet运行在servlet容器中，例如Tomcat。portlet运行在portlet容器中。)
+  application:一个应用对应一个Bean。仅限于在WEB应用中使用。
+  websocket:-个websocket生命周期对应一个Bean。仅限于在WEB应用中使用:
+  自定义scope:很少使用。

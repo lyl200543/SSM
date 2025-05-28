@@ -184,10 +184,70 @@
 
 
 4.
+    p命名空间注入：
+        作用：简化set注入的配置
+        本质：set注入
+        操作：
+        第一步:在spring的配置文件头部添加p命名空间
+              xmlns:p="http://www.springframework.org/schema/p"
+        第二步:使用p:属性名=“属性值"
+
+    c命名空间注入：
+            作用：简化构造注入的配置
+            本质：构造注入
+            操作：
+            第一步:在spring的配置文件头部添加c命名空间
+                  xmlns:p="http://www.springframework.org/schema/p"
+            第二步:
+                c:属性名
+                c:参数下标
 
 
+5.
+    引入util命名空间
+    spring的配置文件头部添加:
+    xmlns:util="http://www.springframework.orq/schema/util"
+    http://www.springframework/org/schema/util http://www,springframework.org/schema/util/spring-util.xsd
 
 
+6.自动装配：本质是set注入
+    根据名称：
+        Bean中需要添加autowire="byName"，表示通过名称进行装配
+        OrderService中有OrderDao属性
+        而OrderDao属性的名字是aaa，对应的set方法是setAaa()，
+        正好和OrderDao Bean的id是一样的。这就是根据名称自动装配。
+
+    根据类型：
+        类似名称，
+        不能有两个类型相同的bean
+
+
+7.引入外部配置文件：
+    <?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans"
+           xmlns:context="http://www.springframework.org/schema/context"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                               http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+        <!--    location:从类的根路径开始-->
+        <context:property-placeholder location="jdbc.properties"/>
+
+        <bean id="ds" class="com.lyl.spring6.bean.myDataSource">
+            <property name="driver" value="${jdbc.driver}"/>
+            <property name="url" value="${jdbc.url}"/>
+            <property name="username" value="${jdbc.username}"/>
+            <property name="password" value="${jdbc.password}"/>
+        </bean>
+        <!--    username='lyl'
+                ${username}会先自动匹配系统变量
+                因此通常配置文件写成：
+                jdbc.driver=com.mysql.cj.jdbc.Driver
+                jdbc.url=jdbc:mysql://localhost:3306/spring6
+                jdbc.username=root
+                jdbc.password=123456
+                -->
+    </beans>
 
 
 

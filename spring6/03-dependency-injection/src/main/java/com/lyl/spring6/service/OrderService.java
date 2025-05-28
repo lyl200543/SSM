@@ -12,7 +12,7 @@ import com.lyl.spring6.dao.OrderDao;
 public class OrderService {
     private OrderDao orderDao;
 
-    public void setOrderDao (OrderDao orderDao) {
+    public void setAaa (OrderDao orderDao) {
         this.orderDao = orderDao;
     }
 
