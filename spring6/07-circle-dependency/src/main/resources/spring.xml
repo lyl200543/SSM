@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    setter+singleton模式-->
+        <bean id="husband" scope="singleton" class="com.lyl.spring6.Husband">
+            <property name="name" value="张三"/>
+            <property name="wife" ref="wife"/>
+        </bean>
+
+        <bean id="wife" scope="singleton" class="com.lyl.spring6.Wife">
+            <property name="name" value="小花"/>
+            <property name="husband" ref="husband"/>
+        </bean>
+
+
+    <!--    setter+prototype模式-->
+    <!--    <bean id="husband" scope="prototype" class="com.lyl.spring6.Husband">-->
+    <!--        <property name="name" value="张三"/>-->
+    <!--        <property name="wife" ref="wife"/>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="wife" scope="singleton" class="com.lyl.spring6.Wife">-->
+    <!--        <property name="name" value="小花"/>-->
+    <!--        <property name="husband" ref="husband"/>-->
+    <!--    </bean>-->
+
+
+    <!--    构造注入-->
+<!--    <bean id="husband" scope="prototype" class="com.lyl.spring6.Husband">-->
+<!--        <constructor-arg index="0" value="张三"/>-->
+<!--        <constructor-arg index="1" ref="wife"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="wife" scope="prototype" class="com.lyl.spring6.Wife">-->
+<!--        <constructor-arg index="0" value="小花"/>-->
+<!--        <constructor-arg index="1" ref="husband"/>-->
+<!--    </bean>-->
+</beans>
