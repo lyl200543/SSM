@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+    <bean id="vipBean" class="com.lyl.myspring.bean.Vip">
+        <property name="name" value="张泽禹"/>
+        <property name="age" value="18"/>
+        <property name="sex" value="男"/>
+        <property name="isMarried" value="false"/>
+    </bean>
+
+    <bean id="orderDaoBean" class="com.lyl.myspring.bean.OrderDao"/>
+
+    <bean id="orderServiceBean" class="com.lyl.myspring.bean.OrderService">
+        <property name="orderDao" ref="orderDaoBean"/>
+    </bean>
+
+</beans>

@@ -8,12 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="factory-method" />
         <module name="04-scope" />
+        <module name="myspring-test" />
         <module name="simple-factory" />
         <module name="05-bean-instantiation" />
         <module name="07-circle-dependency" />
         <module name="01-revelation" />
         <module name="03-dependency-injection" />
         <module name="06-bean-lifecycle" />
+        <module name="review-antotation" />
+        <module name="myspring" />
         <module name="02-first" />
       </profile>
     </annotationProcessing>
