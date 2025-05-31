@@ -2,22 +2,26 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="factory-method" />
         <module name="04-scope" />
-        <module name="myspring-test" />
         <module name="simple-factory" />
         <module name="05-bean-instantiation" />
-        <module name="07-circle-dependency" />
+        <module name="09-jdbc" />
         <module name="01-revelation" />
+        <module name="review-antotation" />
+        <module name="02-first" />
+        <module name="factory-method" />
+        <module name="myspring-test" />
+        <module name="07-circle-dependency" />
         <module name="03-dependency-injection" />
         <module name="06-bean-lifecycle" />
-        <module name="review-antotation" />
+        <module name="08-ioc-annotation" />
         <module name="myspring" />
-        <module name="02-first" />
+        <module name="static-proxy" />
       </profile>
     </annotationProcessing>
   </component>

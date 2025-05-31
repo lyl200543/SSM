@@ -1,4 +1,6 @@
-package com.lyl.spring6;
+package com.lyl.spring6.bean;
+
+import com.lyl.spring6.component;
 
 /**
  *ClassName: User
@@ -7,6 +9,6 @@ package com.lyl.spring6;
  *@Author lyl
  *@Version 1.0
  */
-@component("userBean")
+@component ("userBean")
 public class User {
 }

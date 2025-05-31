@@ -1,0 +1,14 @@
+CREATE DATABASE spring6;
+USE spring6
+CREATE TABLE t_user
+(id INT PRIMARY KEY AUTO_INCREMENT,
+real_name VARCHAR(255),
+age INT
+);
+
+SELECT * FROM t_user
+
+INSERT INTO t_user
+VALUES
+(NULL,"张三",30),
+(NULL,"李四",33)

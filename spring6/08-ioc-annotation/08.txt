@@ -1,0 +1,207 @@
+注解式开发
+
+1.声明Bean的注解
+    负责声明Bean的注解，常见的包括四个:
+        @Component
+        @Controller
+        @Service
+        @Repository
+
+        @Target({ElementType.TYPE})
+        @Retention(RetentionPolicy.RUNTIME)
+        @Documented
+        @Indexed
+        public @interface Component {
+            String value() default "";
+        }
+
+        @Target({ElementType.TYPE})
+        @Retention(RetentionPolicy.RUNTIME)
+        @Documented
+        @Component
+        public @interface Controller {
+            @AliasFor(
+                annotation = Component.class
+            )
+            String value() default "";
+        }
+
+        @Target({ElementType.TYPE})
+        @Retention(RetentionPolicy.RUNTIME)
+        @Documented
+        @Component
+        public @interface Service {
+            @AliasFor(
+                annotation = Component.class
+            )
+            String value() default "";
+        }
+
+        @Target({ElementType.TYPE})
+        @Retention(RetentionPolicy.RUNTIME)
+        @Documented
+        @Component
+        public @interface Repository {
+            @AliasFor(
+                annotation = Component.class
+            )
+            String value() default "";
+        }
+
+    总结：@controller,@service,@repository都是@component的别名
+    只是为了增强程序的可读性，建议:
+    控制器类上使用:Controller
+    service类上使用:Service
+    dao类上使用:Repository
+
+
+2.Spring注解的使用
+    如何使用以上的注解呢?
+    第一步:加入aop的依赖（引入spring-context时一并引入了）
+    第二步:在配置文件中添加context命名空间
+        xmlns:context="http://www.springframework.org/schema/context"
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    第三步:在配置文件中指定扫描的包
+        <context:component-scan base-package="com.lyl.spring6.bean"/>
+
+    第四步:在Bean类上使用注解
+        @Component("userBean")
+        public class User {
+        }
+    ==
+        <bean id="userBean" class="com.lyl.spring6.bean.User"/>
+
+        注意：如果value没有赋值，即@Component，那么value默认为首字母小写的类名
+
+    如果是多个包怎么办?有两种解决方案:
+    第一种:在配置文件中指定多个包，用逗号隔开
+    第二种:指定多个包的共同父包（效率较低）
+
+
+3.选择性实例化Bean
+    use-default-filters="true",使用sprinq默认的规则，
+        只要有Component、Controller、Service、Repository中的任意一个注解标注，则进行实例化.
+    use-default-filters="false",表示不再使用spring默认实例化规则
+        即使有Component、Controller、Service、Repository这些注解标注，也不再实例化。
+
+    1>
+        <context:component-scan base-package="com.lyl.spring6.bean3" use-default-filters="false">
+                <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        </context:component-scan>
+
+    2>
+        <context:component-scan base-package="com.lyl.spring6.bean3">
+                <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+                <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+                <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        </context:component-scan>
+
+    注意：1>use-default-filters默认为true
+         2>其他的注解都是@Component的别名，一旦include-filter/exclude-filter包括了Component
+         那么就是所有注解都包括或去除
+
+
+4.负责注入的注解
+    @Component @Controler @Senvice @Repository这四个注解是用来声明Bean的,声明后这些Bean将被实例化
+    接下来要给Bean的属性赋值，给Bean属性赋值需要用
+        @Value
+        @Autowired
+        @Qualifier
+        @Resource
+
+4.1 @Value
+    当属性的类型是简单类型时，可以使用@Value注解进行注入
+    @Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE})
+    @Retention(RetentionPolicy.RUNTIME)
+    @Documented
+    public @interface Value {
+        String value();
+    }
+
+    注意：没有setter方法也可以
+
+4.2 @Autowired与@Qualifier
+    4.2.1 @Autowired注解可以用来注入非简单类型。被翻译为:自动连线的，或者自动装配。
+    单独使用@Autowired注解，默认根据类型装配(默认是byType)
+    @Target({ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE})
+    @Retention(RetentionPolicy.RUNTIME)
+    @Documented
+    public @interface Autowired {
+        boolean required() default true;
+    }
+
+    @Service
+    public class StudentService {
+        @Autowired
+        private StudentDao studentDao;
+
+        public void save () {
+            studentDao.insert();
+        }
+    }
+
+
+    4.2.2 如果一个属性（接口），有多个实现类时，还能使用byType装配吗？不能！
+    怎么解决这个问题呢?当然要byName，根据名称进行装配了
+    @Autowired注解和@Qualifier注解联合起来才可以根据名称进行装配
+    在@Qualifier注解中指定Bean名称。
+
+    @Service
+    public class StudentService {
+        @Autowired
+        @Qualifier ("studentDaoImplForMySQL")
+        private StudentDao studentDao;
+
+        public void save () {
+            studentDao.insert();
+        }
+    }
+
+
+4.3 @Resource注解
+    @Resource注解也可以完成非简单类型注入。那它和@Autowired注解有什么区别?
+    1>@Resource注解是JDK扩展包中的，也就是说属于JDK的一部分。所以该注解是标准注解，更加具有通用性。(JSR-250标准中制定的注解类型。JSR是Java规范提案。)
+    @Autowired注解是Spring框架自己的
+
+    2>@Resource注解默认根据名称装配byName，未指定name时，使用属性名作为name
+    通过name找不到的话会自动启动通过类型byType装配
+    @Autowired注解默认根据类型装配byType，如果想根据名称装配，需要配合@Qualifier注解一起用。
+
+    3>@Resource注解用在属性上、setter方法上。
+    @Autowired注解用在属性上、setter方法上、构造方法上、构造方法参数上
+
+    注意：@Resource注解属于JDK扩展包，所以不在JDK当中，需要额外引入jakarta-annotation-api依赖
+
+
+5.全注解式开发：
+    所谓的全注解开发就是不再使用spring配置文件了。写一个配置类来代替配置文件。
+    @Configuration
+    @ComponentScan("cn.lyl.spring6.Dao,cn.lyl.spring6.Service")
+    public class springConfig {
+    }
+
+    测试程序：
+    ApplicationContext context = new AnnotationConfigApplicationContext(springConfig.class);
+    WorkerService workerService = context.getBean("workerService" , WorkerService.class);
+    workerService.delete();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

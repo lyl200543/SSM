@@ -9,6 +9,15 @@ package com.lyl.spring6;
  */
 public class annotationTest {
     public static void main (String[] args) {
+        try {
+            Class<?> clazz = Class.forName("com.lyl.spring6.bean.User");
+            if (clazz.isAnnotationPresent(component.class)) {
+                component annotation = clazz.getAnnotation(component.class);
+                System.out.println(annotation.value());
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 }
