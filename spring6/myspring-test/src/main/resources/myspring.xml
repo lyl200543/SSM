@@ -10,7 +10,7 @@
 
     <bean id="orderDaoBean" class="com.lyl.myspring.bean.OrderDao"/>
 
-    <bean id="orderServiceBean" class="com.lyl.myspring.bean.OrderService">
+    <bean id="orderServiceBean" class="com.lyl.myspring.bean.com.lyl.spring6.proxy.OrderService">
         <property name="orderDao" ref="orderDaoBean"/>
     </bean>
 

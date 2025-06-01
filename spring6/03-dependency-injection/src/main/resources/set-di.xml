@@ -3,14 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="MathBean" class="com.lyl.spring6.bean.MathBean">
+    <bean id="MathBean" class="com.lyl.spring6.proxy.bean.MathBean">
         <!--        <property name="sign" value="2 &gt; 3"/>-->
         <property name="sign">
             <value><![CDATA[2>3]]></value>
         </property>
     </bean>
 
-    <bean id="animalBean" class="com.lyl.spring6.bean.animal">
+    <bean id="animalBean" class="com.lyl.spring6.proxy.bean.animal">
         <!--        <property name="name" value="Tom"/>-->
         <!--                <property name="name">-->
         <!--                    <null/>-->
@@ -24,27 +24,27 @@
         <property name="age" value="3"/>
     </bean>
 
-    <bean id="OrderDaoBean" class="com.lyl.spring6.dao.OrderDao"/>
-    <bean id="OrderServiceBean" class="com.lyl.spring6.service.OrderService">
+    <bean id="OrderDaoBean" class="com.lyl.spring6.proxy.dao.OrderDao"/>
+    <bean id="OrderServiceBean" class="com.lyl.spring6.proxy.service.com.lyl.spring6.proxy.OrderService">
         <!--        外部Bean(通常情况下)-->
         <property name="orderDao" ref="OrderDaoBean"/>
     </bean>
 
-    <bean id="OrderServiceBean2" class="com.lyl.spring6.service.OrderService">
+    <bean id="OrderServiceBean2" class="com.lyl.spring6.proxy.service.com.lyl.spring6.proxy.OrderService">
         <property name="orderDao">
             <!--            内部Bean-->
-            <bean class="com.lyl.spring6.dao.OrderDao"/>
+            <bean class="com.lyl.spring6.proxy.dao.OrderDao"/>
         </property>
     </bean>
 
     <!--    注入简单类型,不用ref,用value-->
-    <bean id="UserBean" class="com.lyl.spring6.bean.User">
+    <bean id="UserBean" class="bean.com.lyl.spring6.proxy.User">
         <property name="name" value="张三"/>
         <property name="password" value="123456"/>
         <property name="age" value="20"/>
     </bean>
 
-    <bean id="SimpleTypeBean" class="com.lyl.spring6.bean.SimpleType">
+    <bean id="SimpleTypeBean" class="com.lyl.spring6.proxy.bean.SimpleType">
         <property name="num" value="30"/>
         <property name="num2" value="30"/>
         <property name="c" value="男"/>
@@ -60,7 +60,7 @@
         <property name="date" value="Mon May 26 20:01:56 CST 2025"/>
     </bean>
 
-    <bean id="myDataSourceBean" class="com.lyl.spring6.bean.myDataSource">
+    <bean id="myDataSourceBean" class="com.lyl.spring6.proxy.bean.myDataSource">
         <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/spring"/>
         <property name="username" value="root"/>

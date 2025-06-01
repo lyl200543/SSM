@@ -3,14 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="UserDao" class="com.lyl.spring6.dao.UserDao"/>
-    <bean id="VipDao" class="com.lyl.spring6.dao.VipDao"/>
-    <bean id="csBean" class="com.lyl.spring6.service.CustomerService">
+    <bean id="UserDao" class="dao.com.lyl.spring6.proxy.UserDao"/>
+    <bean id="VipDao" class="com.lyl.spring6.proxy.dao.VipDao"/>
+    <bean id="csBean" class="com.lyl.spring6.proxy.service.CustomerService">
         <constructor-arg index="0" ref="UserDao"/>
         <constructor-arg index="1" ref="VipDao"/>
     </bean>
 
-    <bean id="csBean2" class="com.lyl.spring6.service.CustomerService">
+    <bean id="csBean2" class="com.lyl.spring6.proxy.service.CustomerService">
         <!--name为构造函数中属性的名称-->
         <constructor-arg name="userDao" ref="UserDao"/>
         <constructor-arg name="vipDao" ref="VipDao"/>

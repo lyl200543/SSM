@@ -3,9 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="com.lyl.spring6.logBeanPostProcessor"/>
+    <bean class="com.lyl.spring6.proxy.logBeanPostProcessor"/>
 
-    <bean id="student" class="com.lyl.spring6.Student"
+    <bean id="student" class="com.lyl.spring6.proxy.Student"
           init-method="stuinit" destroy-method="studestroy">
         <property name="name" value="zhangsan"/>
     </bean>

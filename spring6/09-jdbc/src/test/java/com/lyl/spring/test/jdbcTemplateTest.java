@@ -1,6 +1,6 @@
 package com.lyl.spring.test;
 
-import com.lyl.spring6.User;
+import com.lyl.spring6.proxy.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

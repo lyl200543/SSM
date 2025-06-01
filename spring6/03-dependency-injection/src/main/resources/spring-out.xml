@@ -8,7 +8,7 @@
     <!--    location:从类的根路径开始-->
     <context:property-placeholder location="jdbc.properties"/>
 
-    <bean id="ds" class="com.lyl.spring6.bean.myDataSource">
+    <bean id="ds" class="com.lyl.spring6.proxy.bean.myDataSource">
         <property name="driver" value="${jdbc.driver}"/>
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>

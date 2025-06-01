@@ -4,14 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <!--    id不能随便起，要和set方法一致-->
-    <bean id="aaa" class="com.lyl.spring6.dao.OrderDao"/>
-    <bean id="OrderServiceBean" class="com.lyl.spring6.service.OrderService" autowire="byName">
+    <bean id="aaa" class="com.lyl.spring6.proxy.dao.OrderDao"/>
+    <bean id="OrderServiceBean" class="com.lyl.spring6.proxy.service.com.lyl.spring6.proxy.OrderService" autowire="byName">
     </bean>
 
 <!--    类型装配：不能有两个类型相同的bean-->
-    <bean class="com.lyl.spring6.dao.UserDao"/>
-    <bean id="v1"  class="com.lyl.spring6.dao.VipDao"/>
-<!--    <bean id="v2"  class="com.lyl.spring6.dao.VipDao"/>-->
+    <bean class="dao.com.lyl.spring6.proxy.UserDao"/>
+    <bean id="v1"  class="com.lyl.spring6.proxy.dao.VipDao"/>
+<!--    <bean id="v2"  class="dao.com.lyl.spring6.proxy.VipDao"/>-->
 
-    <bean id="cs" class="com.lyl.spring6.service.CustomerService" autowire="byType"/>
+    <bean id="cs" class="com.lyl.spring6.proxy.service.CustomerService" autowire="byType"/>
 </beans>

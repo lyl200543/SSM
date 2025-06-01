@@ -3,14 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="StudentBean" class="com.lyl.spring6.bean.Student">
+    <bean id="StudentBean" class="bean.com.lyl.spring6.proxy.Student">
         <property name="name" value="张三"/>
         <property name="clazz" ref="ClazzBean"/>
         <!--        级联属性赋值-->
         <property name="clazz.name" value="高三1班"/>
     </bean>
 
-    <bean id="ClazzBean" class="com.lyl.spring6.bean.Clazz">
+    <bean id="ClazzBean" class="com.lyl.spring6.proxy.bean.Clazz">
         <!--<property name="name" value="高三1班"/>-->
     </bean>
 </beans>

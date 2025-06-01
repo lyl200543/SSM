@@ -1,6 +1,6 @@
 package com.lyl.spring.test;
 
-import com.lyl.spring6.*;
+import com.lyl.spring6.proxy.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

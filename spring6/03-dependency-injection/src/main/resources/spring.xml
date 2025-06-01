@@ -3,8 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="UserDaoBean" class="com.lyl.spring6.dao.UserDao"/>
-    <bean id="UserServiceBean" class="com.lyl.spring6.service.UserService">
+    <bean id="UserDaoBean" class="dao.com.lyl.spring6.proxy.UserDao"/>
+    <bean id="UserServiceBean" class="service.com.lyl.spring6.proxy.UserService">
         <property name="userDao" ref="UserDaoBean"/>
     </bean>
 

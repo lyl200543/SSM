@@ -3,19 +3,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="w1" class="com.lyl.spring6.bean.Woman">
+    <bean id="w1" class="com.lyl.spring6.proxy.bean.Woman">
         <property name="name" value="小花"/>
     </bean>
 
-    <bean id="w2" class="com.lyl.spring6.bean.Woman">
+    <bean id="w2" class="com.lyl.spring6.proxy.bean.Woman">
         <property name="name" value="小花"/>
     </bean>
 
-    <bean id="w3" class="com.lyl.spring6.bean.Woman">
+    <bean id="w3" class="com.lyl.spring6.proxy.bean.Woman">
         <property name="name" value="小花"/>
     </bean>
 
-    <bean id="QianDaYeBean" class="com.lyl.spring6.bean.QianDaYe">
+    <bean id="QianDaYeBean" class="com.lyl.spring6.proxy.bean.QianDaYe">
         <!--        简单类型-->
         <property name="hobbies">
             <array>

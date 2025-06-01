@@ -13,11 +13,11 @@
         <prop key="password">123456</prop>
     </util:properties>
 
-    <bean id="ds1" class="com.lyl.spring6.dataSource.myDataSource1">
+    <bean id="ds1" class="com.lyl.spring6.proxy.dataSource.myDataSource1">
         <property name="properties" ref="props"/>
     </bean>
 
-    <bean id="ds2" class="com.lyl.spring6.dataSource.myDataSource2">
+    <bean id="ds2" class="com.lyl.spring6.proxy.dataSource.myDataSource2">
         <property name="properties" ref="props"/>
     </bean>
 </beans>

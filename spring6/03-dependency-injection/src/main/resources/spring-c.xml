@@ -4,5 +4,5 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="myTimeBean" class="com.lyl.spring6.bean.myTime" c:_0="2025" c:_1="5" c:_2="28"/>
+    <bean id="myTimeBean" class="com.lyl.spring6.proxy.bean.myTime" c:_0="2025" c:_1="5" c:_2="28"/>
 </beans>

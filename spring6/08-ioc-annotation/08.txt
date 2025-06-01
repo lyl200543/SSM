@@ -70,7 +70,7 @@
         public class User {
         }
     ==
-        <bean id="userBean" class="com.lyl.spring6.bean.User"/>
+        <bean id="userBean" class="bean.com.lyl.spring6.proxy.User"/>
 
         注意：如果value没有赋值，即@Component，那么value默认为首字母小写的类名
 

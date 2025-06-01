@@ -2,7 +2,7 @@
 
 1.底层是怎么创建对象的？
     通过反射机制,调用无参构造函数
-    Class clazz = Class.forName("com.lyl.spring6.bean.User");
+    Class clazz = Class.forName("bean.com.lyl.spring6.proxy.User");
     User user = clazz.newInstance();
     -->一定要有无参构造函数
 
