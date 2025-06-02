@@ -13,4 +13,6 @@ public interface AccountDao {
     Account select (String actno);
 
     int update (Account account);
+
+    int insert (Account account);
 }

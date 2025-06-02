@@ -14,8 +14,10 @@
         <module name="01-revelation" />
         <module name="review-antotation" />
         <module name="10-spring-aspectj-aop-annotation" />
+        <module name="15-sm" />
         <module name="02-first" />
         <module name="dynamic-proxy" />
+        <module name="14-junit" />
         <module name="factory-method" />
         <module name="myspring-test" />
         <module name="07-circle-dependency" />
@@ -24,6 +26,7 @@
         <module name="08-ioc-annotation" />
         <module name="myspring" />
         <module name="12-tx-bank" />
+        <module name="13-tx-bank-xml" />
         <module name="11-aop-realapp" />
         <module name="static-proxy" />
         <module name="dynamic-proxy-cglib" />

@@ -1,5 +1,7 @@
 package com.lyl.bank.service;
 
+import com.lyl.bank.pojo.Account;
+
 /**
  *ClassName: AccountService
  *Package: com.lyl.bank.service
@@ -9,5 +11,7 @@ package com.lyl.bank.service;
  */
 public interface AccountService {
     void transfer (String fromAct , String toAct , double money);
+
+    void save (Account account);
 
 }
