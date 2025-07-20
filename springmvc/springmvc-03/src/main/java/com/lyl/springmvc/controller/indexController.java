@@ -43,9 +43,19 @@ public class indexController {
         return "ok";
     }
 
-//    @RequestMapping (value = "/user/login", method = RequestMethod.POST)
-    @PostMapping("/user/login")
+    //    @RequestMapping (value = "/user/login", method = RequestMethod.POST)
+    @PostMapping ("/user/login")
     public String testMethod () {
+        return "ok";
+    }
+
+    @RequestMapping (value = "/testParam", params = {"username!=admin" , "password"})
+    public String testParam () {
+        return "ok";
+    }
+
+    @RequestMapping (value = "/testHeaders", headers = {"!Referer" , "Host"})
+    public String testHeaders () {
         return "ok";
     }
 }
