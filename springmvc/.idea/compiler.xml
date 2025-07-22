@@ -12,6 +12,7 @@
         <module name="springmvc-02" />
         <module name="springmvc-05" />
         <module name="springmvc-04" />
+        <module name="springmvc-06" />
       </profile>
     </annotationProcessing>
   </component>
