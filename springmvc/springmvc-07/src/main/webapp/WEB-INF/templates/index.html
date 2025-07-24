@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script>
+        function del(event){
+            let delform = document.getElementById("delform")
+            delform.action=event.target.href
+            delform.submit()
+            event.preventDefault()
+        }
+    </script>
+</head>
+<body>
+    <h1>测试RESTFUL编程风格</h1>
+    <hr>
+    <a th:href="@{/user}">获取所有用户信息</a><br>
+    <a th:href="@{/user/1}">获取1号用户信息</a><hr>
+    <form th:action="@{/user}" method="post">
+        账号：<input type="text" name="username"/><br>
+        密码：<input type="password" name="password"><br>
+        年龄：<input type="text" name="age"><br>
+        <input type="submit" value="保存"><hr>
+    </form>
+    <form th:action="@{/user}" method="post">
+        <input type="hidden" name="_method" value="put">
+        账号：<input type="text" name="username"/><br>
+        密码：<input type="password" name="password"><br>
+        年龄：<input type="text" name="age"><br>
+        <input type="submit" value="修改"><hr>
+    </form>
+    <a th:href="@{/user/2}" onclick="del(event)">删除2号用户信息</a>
+    <form method="post" id="delform">
+        <input type="hidden" name="_method" value="delete">
+    </form>
+
+</body>
+</html>
