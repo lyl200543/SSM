@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>用户列表</title>
-    <link rel="stylesheet" href="user.css" type="text/css"></link>
+    <link rel="stylesheet" th:href="@{/static/css/user.css}" type="text/css"></link>
 </head>
 <body>
 <div class="header">
     <h1>用户列表</h1>
 </div>
 <div class="add-button-wrapper">
-    <a class="add-button" href="user_add.html">新增用户</a>
+    <a class="add-button" th:href="@{/toSave}">新增用户</a>
 </div>
 <table>
     <thead>
@@ -23,27 +23,32 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>1</td>
-        <td>张三</td>
-        <td>男</td>
-        <td>zhangsan@powernode.com</td>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.sex==1?'男':'女'}"></td>
+        <td th:text="${user.email}"></td>
         <td>
-            修改
-            删除
-        </td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>李四</td>
-        <td>女</td>
-        <td>lisi@powernode.com</td>
-        <td>
-            修改
-            删除
+            <a th:href="@{'/user/'+${user.id}}">修改</a>
+            <a th:href="@{'/user/'+${user.id}}" onclick="del(event)">删除</a>
         </td>
     </tr>
     </tbody>
 </table>
+
+<div style="display:none">
+    <form method="post" id="delForm">
+        <input type="hidden" name="_method" value="delete">
+    </form>
+</div>
+
+<script>
+    function del(event) {
+        let delForm = document.getElementById("delForm");
+        delForm.action = event.target.href;
+        delForm.submit();
+        event.preventDefault();
+    }
+</script>
 </body>
 </html>

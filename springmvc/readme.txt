@@ -550,6 +550,18 @@ Spring MVC框架：课堂笔记（只记重点）
     * 这个注解的作用是直接将请求体传递给Java程序，在Java程序中可以直接使用一个String类型的变量接收这个请求体的内容。
     * 底层使用的HTTP消息转换器是：FormHttpMessageConverter
 
+    在没有使用这个注解的时候：
+    @RequestMapping("/save")
+    public String save(User user){
+        // 执行保存的业务逻辑
+        userDao.save(user);
+        // 保存成功跳转到成功页面
+        return "success";
+    }
+    当请求体提交的数据是：
+    username=zhangsan&password=1234&email=zhangsan@powernode.com
+    那么Spring MVC会自动使用 `FormHttpMessageConverter`消息转换器，将请求体转换成user对象
+
     关于@RequestBody 注解的重要用法：如果前端请求体当中提交的数据是JSON格式，那么 @RequestBody 可以将提交的JSON格式的字符串转换成java对象。
     注意：同样需要使用jackson的依赖。
         <dependency>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script th:src="@{/static/js/vue3.4.21.js}"></script>
+    <script th:src="@{/static/js/axios.min.js}"></script>
+</head>
+<body>
+    <form th:action="@{/save}" method="post">
+        账号：<input type="text" name="username"><br>
+        密码：<input type="password" name="password"><br>
+        <input type="submit" value="保存">
+    </form>
+    <hr>
+    <h1>首页</h1>
+    <hr>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <button @click="getMessage">获取消息</button>
+    </div>
+
+<!--    <script th:inline="javascript">-->
+<!--        Vue.createApp({-->
+<!--            data(){-->
+<!--                return {-->
+<!--                    message:""-->
+<!--                }-->
+<!--            },-->
+<!--            methods:{-->
+<!--                async getMessage(){-->
+<!--                    let response=await axios.get([[@{/}]] + 'ajax')-->
+<!--                    this.message=response.data-->
+<!--                }-->
+<!--            }-->
+<!--        }).mount("#app")-->
+<!--    </script>-->
+
+
+    <script th:inline="javascript">
+        let jsonObj={"username":"zhangsan","password":"123456"}
+
+        Vue.createApp({
+            data(){
+                return {
+                    message:""
+                }
+            },
+            methods:{
+                async getMessage(){
+                    let response = await axios.post([[@{/}]] + 'jsonSave',JSON.stringify(jsonObj),
+                        {
+                            headers:{
+                                "Content-Type":"application/json"
+                            }
+                        })
+                    this.message=response.data
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>
